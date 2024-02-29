@@ -1,11 +1,11 @@
 const express = require("express");
 const { getAllUsers, getAnUser } = require("../controllers/user.controller");
+const isAuthenticated = require("../middlewares/auth.middleware");
+const isAdmin = require("../middlewares/admin.middleware");
 
 const router = express.Router();
 
-router.get("/", getAllUsers); // admin
 router.get("/:userid", getAnUser);
-router.put("/:userid"); // user
-router.delete("/:userid"); // user
+router.get("/", isAuthenticated, isAdmin, getAllUsers); // admin
 
 module.exports = router;
