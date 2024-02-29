@@ -9,10 +9,10 @@ const {
 
 const router = express.Router();
 
-router.post("/", createBook);
+router.post("/", createBook); // user
 router.get("/", getAllBooks);
 router.get("/:bookid", getABook);
-router.put("/:bookid", updateABook);
-router.delete("/:bookid", deleteABook);
+router.put("/:bookid", updateABook); // user
+router.delete("/:bookid", deleteABook); // user
 
 module.exports = router;
